@@ -19,7 +19,7 @@ def main():
         unsafe_allow_html=True,
     )
 
-    text_input = st.text_area("Enter your SQL query her, in plain english:")
+    text_input = st.text_area("Enter your SQL query here, in plain english:")
 
     submit = st.button("Generate SQL Query")
 
@@ -72,8 +72,7 @@ def main():
                 st.success("Expected Output of this SQL Query:")
                 st.markdown(eoutput)
                 st.write("\n\n")
-                st.write(explanation)
-
-
-
+                st.success("Explanation:")
+                st.markdown(explanation,unsafe_allow_html=True)
+                
 main()
