@@ -3,6 +3,7 @@ import google.generativeai as genai
 import googleAPI
 
 googleAPI.main()
+model = genai.GenerativeModel("gemini-pro")
 
 def main():
     st.title("Advance SQL generator")
@@ -26,8 +27,28 @@ def main():
             st.write(column_names)
             st.write(data_types)
 
-    #Writing code that will connect to the database and get the data from the database
-#------------------------------------------------------------------------------------------------------    
+    text_input = st.text_area("Enter your SQL query here, in plain english:")
+
+    submit = st.button("Generate SQL Query")
+    if submit:
+        with st.spinner("Generation SQL Query..."):
+            template = """ Create a SQl query snippet using the below text:
+            ```
+            {text_input}
+            ```
+            The database schema includes the following columns and their corresponding data types:
+            ```
+            {column_names}, {data_types}
+            ```
+
+            I just want a SQL query
+            """
+            formatted_template = template.format(text_input=text_input, column_names=column_names, data_types=data_types)
+            response = model.generate_content(formatted_template)
+            sql_query = response.text
+            sql_query = sql_query.strip().lstrip("```sql").rstrip("```")
+            st.write(sql_query)   
+    
 
 if __name__ == "__main__":
     main()
