@@ -26,5 +26,8 @@ def main():
             st.write(column_names)
             st.write(data_types)
 
+    #Writing code that will connect to the database and get the data from the database
+#------------------------------------------------------------------------------------------------------    
+
 if __name__ == "__main__":
     main()
