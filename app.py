@@ -1,11 +1,10 @@
 import streamlit as st
 import google.generativeai as genai
+import googleAPI
 import simple
 import advance
 
-GOOGLE_API_KEY ="AIzaSyCdGCm8Ge6rEARQ6HnG7qunp1vOJzltlnc"
-genai.configure(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel( "gemini-pro")
+googleAPI.main()
 
 def main():
     st.sidebar.title("Nav-bar")
@@ -16,7 +15,6 @@ def main():
         st.write("simple: for simple sql generator")
         st.write("advance: for advance sql generator")
         
-
     elif app_mode == "Simple":
         # Add your content for the Home page here
         simple.main()

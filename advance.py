@@ -1,9 +1,8 @@
 import streamlit as st
 import google.generativeai as genai
+import googleAPI
 
-GOOGLE_API_KEY ="AIzaSyCdGCm8Ge6rEARQ6HnG7qunp1vOJzltlnc"
-genai.configure(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel("gemini-pro")
+googleAPI.main()
 
 def main():
     st.title("Advance SQL generator")
@@ -15,10 +14,10 @@ def main():
     data_types = []
 
     with st.form(key='columns_form'):
+
         for i in range(column_counter):
             column_name = st.text_input(f"Enter column name {i+1}:", key=f"column_name_input_{i+1}")
             data_type = st.text_input(f"Enter data type {i+1}:", key=f"data_type_input_{i+1}")
-            
             column_names.append(column_name)
             data_types.append(data_type)
 
