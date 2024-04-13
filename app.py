@@ -9,7 +9,7 @@ model = genai.GenerativeModel( "gemini-pro")
 
 def main():
     st.sidebar.title("Nav-bar")
-    app_mode = st.sidebar.selectbox("Choose a page", ["Home","simple", "advance"])
+    app_mode = st.sidebar.selectbox("Choose a page", ["Home","Simple", "Advance"])
 
     if app_mode == "Home":
         st.title("Choose one option")
@@ -17,11 +17,11 @@ def main():
         st.write("advance: for advance sql generator")
         
 
-    elif app_mode == "simple":
+    elif app_mode == "Simple":
         # Add your content for the Home page here
         simple.main()
 
-    elif app_mode == "advance":
+    elif app_mode == "Advance":
         # Add your content for the About page here
         advance.main()
 

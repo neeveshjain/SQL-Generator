@@ -25,6 +25,7 @@ def main():
         if st.form_submit_button("Done"):
             # process the column_names and data_types here
             st.write(column_names)
+            st.write(data_types)
 
 if __name__ == "__main__":
     main()
