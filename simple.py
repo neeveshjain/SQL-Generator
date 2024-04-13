@@ -6,8 +6,6 @@ genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel( "gemini-pro")
 
 def main():
-    #st.set_page_config(page_title="SQL Query Generator", page_icon=":robot:")
-    #st.title("Simple text to SQL generator", anchor='center')
     st.markdown(
         """
         <div style = "text-align:center;">
@@ -33,7 +31,6 @@ def main():
             """
 
             formatted_template = template.format(text_input=text_input)
-#            st.write(formatted_template)
             response = model.generate_content(formatted_template)
             sql_query = response.text
 
